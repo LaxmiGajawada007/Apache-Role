@@ -1,0 +1,15 @@
+---
+# tasks file for apache-role
+
+- name: Install apache server
+  apt:
+    name: apache2
+    state: present
+    update_cache: yes
+- name: deploy html on apache 
+  copy: 
+    src: files/index.html
+    dest: /var/www/html
+    owner: root
+    group: root
+    mode: '0644'
